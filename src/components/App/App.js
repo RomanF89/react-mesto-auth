@@ -12,7 +12,7 @@ import AddPlacePopup from '../AddPlacePopup/AddPlacePopup';
 import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Login from '../Login/Login';
-import Register from '../../Register/Register';
+import Register from '../Register/Register';
 import * as Authentication from '../../utils/Authentication';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import okImage from '../../images/Ok.svg';
