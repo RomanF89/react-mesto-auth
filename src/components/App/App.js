@@ -40,7 +40,7 @@ function App() {
 
   const tokenCheck = () => {
     if (localStorage.getItem('token')) {
-      let token = localStorage.getItem('token');
+      const token = localStorage.getItem('token');
       authentication.getContent(token)
       .then((res) => {
         if (res) {
@@ -221,7 +221,7 @@ function App() {
       history.push("/");
       return;
     }
-    history.push('/sign-up');
+    history.push('/sign-in');
   }, [loggedIn]);
 
 

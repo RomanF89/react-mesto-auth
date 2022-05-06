@@ -19,7 +19,7 @@ function Register({ handleRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let { email, password } = state;
+    const { email, password } = state;
     handleRegister(email, password);
   }
 
