@@ -34,7 +34,8 @@ function Register({ handleRegister }) {
             required placeholder="Пароль" onChange={handleChange}></input>
         </fieldset>
         <button type="submit" className="registration__submit-button" aria-label="Зарегистрироваться">Зарегистрироваться</button>
-        <Link to="/sign-in" className="registration__login-redirect">Уже зарегистрированы? Войти</Link>
+        <div className="registration__login-redirect">Уже зарегистрированы?
+          <Link className="registration__login-redirect_link"to="/sign-in">Войти</Link></div>
       </form>
     </div>
   )

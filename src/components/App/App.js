@@ -13,7 +13,7 @@ import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import * as Authentication from '../../utils/Authentication';
+import * as authentication from '../../utils/Authentication';
 import InfoTooltip from '../InfoTooltip/InfoTooltip';
 import okImage from '../../images/Ok.svg';
 import falseImage from '../../images/False.svg'
@@ -41,19 +41,23 @@ function App() {
   const tokenCheck = () => {
     if (localStorage.getItem('token')) {
       let token = localStorage.getItem('token');
-      Authentication.getContent(token).then((res) => {
+      authentication.getContent(token)
+      .then((res) => {
         if (res) {
           setUserData({
             email: res.data.email
           });
           setLoggedIn(true);
         }
-      });
+      })
+      .catch(err => {
+        console.log(err)
+      })
     }
   }
 
   const handleRegister = (email, password) => {
-    return Authentication
+    return authentication
       .register(email, password)
       .then((res) => {
         setCurrentInfoTooltip({ isOpen: true, message: 'Вы успешно зарегистрировались!', infoImage: okImage })
@@ -66,7 +70,7 @@ function App() {
   }
 
   const handleLogin = (email, password) => {
-    return Authentication
+    return authentication
       .authorize(email, password)
       .then((data) => {
         console.log(data.token)
@@ -79,6 +83,7 @@ function App() {
       })
       .catch(err => {
         console.log(err)
+        setCurrentInfoTooltip({ isOpen: true, message: 'Что-то пошло не так! Попробуйте еще раз.', infoImage: falseImage })
       })
       .finally(() => { tokenCheck() })
   }

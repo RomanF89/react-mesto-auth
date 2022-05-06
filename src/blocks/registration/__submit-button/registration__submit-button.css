@@ -11,3 +11,7 @@
   font-size: 18px;
   line-height: 22px;
 }
+
+.registration__submit-button:hover {
+  opacity: 0.6;
+}

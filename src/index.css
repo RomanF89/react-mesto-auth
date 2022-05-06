@@ -61,6 +61,7 @@
 @import url(./blocks/registration/__field/registration__field.css);
 @import url(./blocks/registration/__form/registration__form.css);
 @import url(./blocks/registration/__login-redirect/registration__login-redirect.css);
+@import url(./blocks/registration/__login-redirect/_link/registration__login-redirect-link.css);
 @import url(./blocks/registration/__submit-button/registration__submit-button.css);
 @import url(./blocks/registration/__title/registration__title.css);
 

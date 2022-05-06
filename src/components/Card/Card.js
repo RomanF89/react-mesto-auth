@@ -30,7 +30,7 @@ function Card({owner, link, name, card, likes, onCardClick, onCardDelete, onCard
   return (
     <article className="element">
       <button type="button" className={cardDeleteButtonClassName} aria-label="Удалить карточку" onClick={handleDeleteCardClick} ></button>
-      <img className="element__mask-group" src={link} alt="Картинка" onClick={handleClick} />
+      <img className="element__mask-group" src={link} alt={name} onClick={handleClick} />
       <div className="element__group">
         <h2 className="element__title">{name}</h2>
         <div className="element__like-area">
