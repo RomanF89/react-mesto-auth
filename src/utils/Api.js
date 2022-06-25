@@ -16,7 +16,8 @@ _checkResponse(res) {
   getProfile() {
     return fetch(
       `${this._baseUrl}/users/me`, {
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
       })
       .then(this._checkResponse)
   }
@@ -24,7 +25,9 @@ _checkResponse(res) {
   getCards() {
     return fetch(
       `${this._baseUrl}/cards`, {
-        headers: this._headers
+        headers: this._headers,
+        credentials: 'include'
+
       })
       .then(this._checkResponse)
   }
@@ -33,6 +36,7 @@ _checkResponse(res) {
     return fetch(
     `${this._baseUrl}/users/me`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         name,
@@ -46,6 +50,7 @@ _checkResponse(res) {
     return fetch(
       `${this._baseUrl}/cards`, {
         method: "POST",
+        credentials: 'include',
         headers: this._headers,
         body: JSON.stringify({
           name,
@@ -59,6 +64,7 @@ _checkResponse(res) {
     return fetch(
       `${this._baseUrl}/cards/${id}`, {
         method: "DELETE",
+        credentials: 'include',
         headers: this._headers,
       })
       .then(this._checkResponse)
@@ -69,6 +75,7 @@ _checkResponse(res) {
       return fetch(
         `${this._baseUrl}/cards/${id}/likes`, {
           method: "PUT",
+          credentials: 'include',
           headers: this._headers,
         })
         .then(this._checkResponse)
@@ -76,6 +83,7 @@ _checkResponse(res) {
       return fetch(
         `${this._baseUrl}/cards/${id}/likes`, {
           method: "DELETE",
+          credentials: 'include',
           headers: this._headers,
         })
         .then(this._checkResponse)
@@ -86,6 +94,7 @@ _checkResponse(res) {
     return fetch(
     `${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
+      credentials: 'include',
       headers: this._headers,
       body: JSON.stringify({
         avatar
@@ -96,9 +105,9 @@ _checkResponse(res) {
 }
 
 const api = new Api ({
-  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-37',
+  baseUrl: 'http://localhost:3000',
   headers: {
-    authorization: '656fe77d-0d5d-4667-83c7-0ce1cda6be37',
-    'Content-Type': 'application/json'
+    // authorization: '656fe77d-0d5d-4667-83c7-0ce1cda6be37',
+    'Content-Type': 'application/json',
   }
 });

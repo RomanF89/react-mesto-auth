@@ -39,9 +39,10 @@ function App() {
   // Регистрация и авторизация пользователя
 
   const tokenCheck = () => {
-    if (localStorage.getItem('token')) {
-      const token = localStorage.getItem('token');
-      authentication.getContent(token)
+    // if (localStorage.getItem('token')) {
+    //   const token = localStorage.getItem('token');
+      // authentication.getContent(token)
+      authentication.getContent()
       .then((res) => {
         if (res) {
           setUserData({
@@ -53,7 +54,7 @@ function App() {
       .catch(err => {
         console.log(err)
       })
-    }
+    // }
   }
 
   const handleRegister = (email, password) => {
@@ -73,11 +74,11 @@ function App() {
     return authentication
       .authorize(email, password)
       .then((data) => {
-        console.log(data.token)
-        if (!data.token) {
-          return;
-        }
-        localStorage.setItem('token', data.token);
+        console.log(data)
+        // if (!data.token) {
+        //   return;
+        // }
+        // localStorage.setItem('token', data.token);
         setLoggedIn(true)
         history.push('/')
       })
